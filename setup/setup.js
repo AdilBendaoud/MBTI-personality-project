@@ -2,7 +2,7 @@ require("dotenv").config({ path: __dirname + "/../.variables.env" });
 const fs = require("fs");
 
 const mongoose = require("mongoose");
-mongoose.connect("mongodb://adilbendaoud:U8cn85DT7G42Kpdj@ac-ae0kj0j-shard-00-00.myvs8co.mongodb.net:27017,ac-ae0kj0j-shard-00-01.myvs8co.mongodb.net:27017,ac-ae0kj0j-shard-00-02.myvs8co.mongodb.net:27017/?ssl=true&replicaSet=atlas-3e80pk-shard-0&authSource=admin&retryWrites=true&w=majority&appName=PFA", { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(process.env.DATABASE, { useNewUrlParser: true, useUnifiedTopology: true })
 mongoose.Promise = global.Promise; // Tell Mongoose to use ES6 promises
 
 // import all of our models - they need to be imported only once
