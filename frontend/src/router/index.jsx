@@ -18,13 +18,13 @@ export default function Router() {
     console.log("isLoggedIn : ", isLoggedIn);
   }, [isLoggedIn]);
 
-  // if (isLoggedIn === false)
-  //   return (
-  //     <Layout style={{ minHeight: "100vh" }}>
-  //       <AuthRouter />
-  //     </Layout>
-  //   );
-  // else
+  if (isLoggedIn === false)
+    return (
+      <Layout style={{ minHeight: "100vh" }}>
+        <AuthRouter />
+      </Layout>
+    );
+  else
     return (
       <Layout style={{ minHeight: "100vh" }}>
         <Navigation />
