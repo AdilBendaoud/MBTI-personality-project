@@ -148,34 +148,58 @@ exports.read = async (req, res) => {
  */
 
 exports.create = async (req, res) => {
-    try {
-      // Creating a new document in the collection
-      const result = await new Prof(req.body).save();
-      console.log(result);
-      // Returning successfull response
-      return res.status(200).json({
-        success: true,
-        result,
-        message: "Successfully Created the document in Model",
+  try {
+    let { email, password } = req.body;
+    if (!email || !password)
+      return res.status(400).json({
+        success: false,
+        result: null,
+        message: "Email or password fields they don't have been entered.",
       });
-    } catch (err) {
-      // If err is thrown by Mongoose due to required validations
-      if (err.name == "ValidationError") {
-        return res.status(400).json({
-          success: false,
-          result: null,
-          message: "Required fields are not supplied",
-        });
-      } else {
-        // Server Error
-        return res.status(500).json({
-          success: false,
-          result: null,
-          message: "Oops there is an Error",
-        });
-      }
+
+    const existingProf = await Prof.findOne({ email: email });
+
+    if (existingProf)
+      return res.status(400).json({
+        success: false,
+        result: null,
+        message: "An account with this email already exists.",
+      });
+
+    if (password.length < 8)
+      return res.status(400).json({
+        success: false,
+        result: null,
+        message: "The password needs to be at least 8 characters long.",
+      });
+
+    var newProf = new Prof();
+    const passwordHash = newProf.generateHash(password);
+    req.body.password = passwordHash;
+
+    const result = await new Prof(req.body).save();
+    if (!result) {
+      return res.status(403).json({
+        success: false,
+        result: null,
+        message: "document couldn't save correctly",
+      });
     }
-  };
+    return res.status(200).send({
+      success: true,
+      result: {
+        _id: result._id,
+        enabled: result.enabled,
+        email: result.email,
+        first_name: result.first_name,
+        last_name: result.last_name,
+      },
+      message: "Prof document save correctly",
+    });
+  } catch {
+    return res.status(500).json({ success: false, message: "there is error" });
+  }
+};
 
 /**
  *  Updates a Single document
