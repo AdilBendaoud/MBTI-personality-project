@@ -81,9 +81,6 @@ export default function ProfForm({ isUpdateForm = false }) {
       name: 'password',
       required: true,
       message: 'Veuillez saisir mot de passe !',
-      inputType:{
-        type: "password",
-      },
     },
   ];
   const formData2 = [
