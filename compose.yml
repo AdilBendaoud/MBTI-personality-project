@@ -3,6 +3,11 @@ services:
     build: .
     networks:
       - net2
+    volumes:
+      - .:/app
+      - /app/node_modules
+    ports:
+      - 8888:8888
     env_file:
       - ./.variables.env
     depends_on:

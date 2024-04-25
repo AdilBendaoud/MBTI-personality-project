@@ -10,9 +10,10 @@ import { getCookie, setCookie, deleteCookie } from "./cookie";
 export const login = async (loginAdminData) => {
   try {
     const response = await axios.post(
-      API_BASE_URL + `login?timestamp=${new Date().getTime()}`,
+      `http://api:8888/api/logintest`,
       loginAdminData
     );
+    console.log("URL: " + API_BASE_URL);
     token.set(response.data.result.token);
     return successHandler(response);
   } catch (error) {

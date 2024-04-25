@@ -10,6 +10,7 @@ import { selectAuth } from "@/redux/auth/selectors";
 const { Content, Footer } = Layout;
 
 const LoginPage = () => {
+  console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
   // const [error, setError] = useState();
 
   // const { setAdminData } = useContext(AdminContext);
