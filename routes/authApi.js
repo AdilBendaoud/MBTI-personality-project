@@ -9,7 +9,7 @@ const {
   logout,
 } = require("../controllers/authController");
 
-const { loginDemo } = require("../controllers/authControllerDemo");
+//const { loginDemo } = require("../controllers/authControllerDemo");
 
 // use {login } from authController , uncomment line below
 

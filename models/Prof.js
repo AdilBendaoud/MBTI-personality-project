@@ -35,6 +35,10 @@ const clientSchema = new mongoose.Schema({
     trim: true,
     lowercase: true,
   },
+  password: {
+    type: String,
+    trim: true,
+  },
   filiere: {
     type: ObjectId,
     ref: Filiere,
@@ -45,5 +49,14 @@ const clientSchema = new mongoose.Schema({
     default: Date.now,
   },
 });
+// generating a hash
+clientSchema.methods.generateHash = function (password) {
+  return bcrypt.hashSync(password, bcrypt.genSaltSync(), null);
+};
+
+// checking if password is valid
+clientSchema.methods.validPassword = function (password) {
+  return bcrypt.compareSync(password, this.password);
+};
 
 module.exports = mongoose.model("Prof", clientSchema);

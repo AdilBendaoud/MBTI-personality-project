@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const Prof = mongoose.model("Prof");
-
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
 /**
  *  Get all documents of a Model
  *  @param {Object} req.params
@@ -49,6 +50,55 @@ exports.list = async (req, res) => {
     return res
       .status(500)
       .json({ success: false, result: [], message: "Oops there is an Error" });
+  }
+};
+
+exports.login = async (req, res) => {
+  try {
+    const { email, password } = req.body;
+
+    // validate
+    if (!email || !password)
+      return res.status(400).json({ msg: "Not all fields have been entered." });
+
+    const prof = await Prof.findOne({ email: email });
+    // console.log(Prof);
+    if (!prof)
+      return res.status(400).json({
+        success: false,
+        result: null,
+        message: "No account with this email has been registered.",
+      });
+
+    const isMatch = await bcrypt.compare(password, prof.password);
+    if (!isMatch)
+      return res.status(400).json({
+        success: false,
+        result: null,
+        message: "Invalid credentials.",
+      });
+
+    const token = jwt.sign(
+      {
+        exp: Math.floor(Date.now() / 1000) + 60 * 60 * 24,
+        id: Prof._id,
+      },
+      process.env.JWT_SECRET
+    );
+
+    res.json({
+      success: true,
+      result: {
+        token,
+        prof
+      },
+      message: "Successfully login Prof",
+    });
+  } catch (err) {
+    // res.status(500).json({ success: false, result:null, message: err.message });
+    res
+      .status(500)
+      .json({ success: false, result: null, message: err.message });
   }
 };
 

@@ -52,6 +52,23 @@ exports.list = async (req, res) => {
   }
 };
 
+exports.listAll = async (req, res) => {
+  try {
+    //  Query the database for a list of all results
+    const result = await Question.find().populate('test');
+    
+    return res.status(200).json({
+      success: true,
+      result,
+      message: "Successfully found all documents",
+    });
+  } catch {
+    return res
+      .status(500)
+      .json({ success: false, result, message: "Oops there is an Error" });
+  }
+};
+
 exports.read = async (req, res) => {
   try {
     // Find document by id

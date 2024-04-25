@@ -8,7 +8,7 @@ export default function OptionForm({ isUpdateForm = false }) {
   useEffect(() => {
     const fetchFiliereList = async () => {
       try {
-        const response = await axios.get('http://localhost:8888/api/question/list');
+        const response = await axios.get('http://localhost:8888/api/question/listAll');
         const simplifiedFiliereList = response.data.result.map((question) => ({
           key: question._id,
           value: question.nom_fr,
