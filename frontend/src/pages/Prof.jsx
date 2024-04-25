@@ -53,7 +53,7 @@ export default function Prof() {
   return (
     <ProfCrudModule
       createForm={<ProfForm />}
-      updateForm={<ProfForm />}
+      updateForm={<ProfForm isUpdateForm={true} />}
       config={config}
     />
   );

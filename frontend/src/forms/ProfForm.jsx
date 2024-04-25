@@ -75,9 +75,71 @@ export default function ProfForm({ isUpdateForm = false }) {
       required: true,
       message: 'Veuillez saisir votre E-mail!',
     },
+    {
+      fieldType: 'password',
+      label: 'Mot de passe',
+      name: 'password',
+      required: true,
+      message: 'Veuillez saisir mot de passe !',
+      inputType:{
+        type: "password",
+      },
+    },
+  ];
+  const formData2 = [
+    {
+      fieldType: 'select',
+      label: 'Filere',
+      name: 'filiere',
+      selectOptions:filiereList,
+      required: true,
+      message: 'Please input your company name!',
+    },
+    {
+      fieldType: 'input',
+      label: 'Prenom',
+      name: 'first_name',
+      required: true,
+      message: 'Veuillez saisir votre prenom !',
+      style: {
+        display: 'inline-block',
+        width: 'calc(50%)',
+        paddingRight: '5px',
+      },
+    },
+    {
+      fieldType: 'input',
+      label: 'Nom',
+      name: 'last_name',
+      required: true,
+      message: 'Veuillez saisir votre nom !',
+      style: {
+        display: 'inline-block',
+        width: 'calc(50%)',
+        paddingRight: '5px',
+      },
+    },
+    {
+      fieldType: 'input',
+      label: 'Telephone',
+      name: 'phone',
+      required: true,
+      message: 'Please input your phone!',
+    },
+    {
+      fieldType: 'input',
+      label: 'E-mail',
+      name: 'email',
+      inputType:{
+        type: "email",
+        message: "E-mail invalide !",
+      },
+      required: true,
+      message: 'Veuillez saisir votre E-mail!',
+    },
   ];
   
   return (
-    <DynamicForm fields={formData} />
+    <DynamicForm fields={isUpdateForm ? formData2 : formData} />
   );
 }

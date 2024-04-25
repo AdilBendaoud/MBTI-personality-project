@@ -53,7 +53,7 @@ export default function Etudiant() {
   return (
     <EtudiantCrudModule
       createForm={<EtudiantForm />}
-      updateForm={<EtudiantForm />}
+      updateForm={<EtudiantForm isUpdateForm={true} />}
       config={config}
     />
   );
