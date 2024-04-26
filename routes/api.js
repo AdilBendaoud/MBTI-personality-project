@@ -16,6 +16,7 @@ const questionController = require("../controllers/questionController");
 const optionController = require("../controllers/optionController");
 const testController = require("../controllers/testController");
 const etudiantTestController = require("../controllers/etudiantTestController");
+const noteController = require("../controllers/noteController");
 
 //_______________________________ Admin management_______________________________
 
@@ -113,5 +114,11 @@ router
   .delete(catchErrors(productController.delete));
 router.route("/product/search").get(catchErrors(productController.search));
 router.route("/product/list").get(catchErrors(productController.list));
+
+
+
+// Note api
+
+router.route("/note/create").post(catchErrors(noteController.create));
 
 module.exports = router;

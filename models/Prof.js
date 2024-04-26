@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const  Filiere = mongoose.model("Filiere");
+const Filiere = mongoose.model("Filiere");
 
 mongoose.Promise = global.Promise;
 const Schema = mongoose.Schema;
