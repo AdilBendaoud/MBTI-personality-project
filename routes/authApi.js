@@ -19,4 +19,8 @@ const {
 router.route("/login").post(catchErrors(login));
 router.route("/logout").post(isValidToken, catchErrors(logout));
 
+router.post("/logintest", (req, res) => {
+  console.log("yyetyeyeyeyyfyhfyhrYHRYHyhyhryryhfryhyhfrhyrf");
+})
+
 module.exports = router;

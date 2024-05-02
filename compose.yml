@@ -1,0 +1,48 @@
+services:
+  api:
+    build: .
+    networks:
+      - net2
+    volumes:
+      - .:/app
+      - /app/node_modules
+    ports:
+      - 8888:8888
+    env_file:
+      - ./.variables.env
+    depends_on:
+      - mongodb
+  
+  web:
+    build: ./frontend
+    ports:
+      - 3000:3000
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    depends_on:
+      - api
+    networks:
+      - net2
+
+  mongodb:
+    container_name: mongodb
+    image: mongo:7.0.8-jammy
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root
+    ports:
+      - 27017:27017
+    volumes:
+      - mongodb-data3:/data/db
+      - mongodb-log3:/var/log/mongodb
+    networks:
+      - net2
+
+networks:
+  net2:
+
+volumes:
+  mongodb-data3:
+  mongodb-log3:
