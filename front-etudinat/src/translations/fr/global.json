@@ -1,0 +1,40 @@
+{
+    "Header":{
+        "title" : "Libérez votre potentiel : orientation universitaire personnalisée avec MBTI",
+        "paragraphe" :"Bienvenue sur notre plateforme innovante conçue pour révolutionner l'orientation universitaire.Nous combinons la puissance du MBTI, un outil d'évaluation de la personnalité reconnu,avec des algorithmes avancés pour fournir des recommandations personnalisées adaptées à vos caractéristiques et aspirations uniques.",
+        "btn":"Commenter le Test",
+        "tm":"En utilisant cette plateforme, j'ai découvert mon domaine d'étude idéal et j'ai réussi. C'est intuitif et instructif, cela m'a aidé à comprendre mes forces et mes intérêts. Hautement recommandé pour trouver sa voie dans l'éducation !",
+        "service":"Nos Services Formidables",
+        "service 1":{
+            "title":"Évaluation de carrière",
+            "content":"Explorez vos forces et vos intérêts pour découvrir des pistes de carrière potentielles."
+        },
+        "service 2":{
+            "title":"Filière Matching",
+            "content":"Trouvez le domaine d'étude parfait qui correspond à vos passions et objectifs."
+        },
+        "service 3":{
+            "title":"Services d'orientation professionnelle",
+            "content":"Proposer des séances d'orientation professionnelle virtuelles ou en personne où les étudiants peuvent discuter de leurs résultats MBTI et recevoir des conseils personnalisés pour choisir le meilleur cheminement pour leurs études."
+        },
+        "service 4":{
+            "title":"Test de personnalité MBTI",
+            "content":"Proposez un test de personnalité MBTI complet directement sur votre site internet. Il peut s'agir d'un simple questionnaire que les étudiants peuvent remplir pour identifier leur type de personnalité."
+        },"subservice":{
+            "title":"Libérez votre potentiel",
+            "content":"Découvrez votre cheminement idéal avec une orientation professionnelle basée sur le MBTI"
+        }
+    },
+    "Navbar":{
+        "home":"Accueil",
+        "services":"Services",
+        "contact":"Contact",
+        "btn":"Test",
+        "login":"Connexion"
+    },
+    "resultat":"Résultat",
+    "major":{
+        "title":"Filiere Recommandée pour Vous",
+        "paragraphe":"Le graphique ci-dessous montre le pourcentage de compatibilité pour chaque spécialisation en fonction de votre personnalité, vous aidant à évaluer quelle spécialisation correspond le mieux à votre personnalité et à vos intérêts."
+    }
+}

@@ -1,0 +1,40 @@
+{
+    "Header":{
+        "title" : "Unlock Your Potential: Personalized University Guidance with MBTI",
+        "paragraphe" : "Welcome to our innovative platform designed to revolutionize university guidance. We combine the power of MBTI, a renowned personality assessment tool, with advanced algorithms to provide personalized recommendations tailored to your unique traits and aspirations.",
+        "btn":"Get Started",
+        "tm":"Using this platform, I discovered my ideal field of study and succeeded. It's intuitive and insightful, helping me understand my strengths and interests. Highly recommended for finding direction in education!",
+        "service":"Our Awesome Services",
+        "service 1":{
+            "title":"Career Assessment",
+            "content":"Explore your strengths and interests to uncover potential career paths."
+        },
+        "service 2":{
+            "title":"Career Path Recommendations",
+            "content":"Based on the MBTI personality test results, offer personalized career path recommendations. Highlight fields of study and professions that align with each personality type."
+        },
+        "service 3":{
+            "title":"Career Counseling Services",
+            "content":"Offer virtual or in-person career counseling sessions where students can discuss their MBTI results and receive personalized guidance on choosing the best path for their studies."
+        },
+        "service 4":{
+            "title":"MBTI Personality Test",
+            "content":"Offer a comprehensive MBTI personality test directly on your website. This can be a simple questionnaire that students can fill out to identify their personality type."
+        },"subservice":{
+            "title":"Unlock Your Potential",
+            "content":"Discover Your Perfect Path with MBTI-Based Career Guidance"
+        }
+    },
+    "Navbar":{
+        "home":"Home",
+        "services":"Services",
+        "contact":"Contact",
+        "btn":"Test",
+        "login":"Log in"
+    },
+    "resultat":"Result",
+    "major":{
+        "title":"Recommended Major for You",
+        "paragraphe":"The chart below shows the compatibility percentage for each major based on your personality, enabling you to evaluate which major best matches your personality and interests."
+    }
+}
