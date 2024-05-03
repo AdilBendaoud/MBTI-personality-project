@@ -45,7 +45,7 @@ exports.create = async (req, res) => {
       return res.status(200).json({
         success: true,
         result,
-        message: "Successfully Created the document in Testpassed",
+        message: "Successfully Created the document in Test",
       });
     } catch (err) {
       // If err is thrown by Mongoose due to required validations

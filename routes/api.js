@@ -8,7 +8,7 @@ const clientController = require("../controllers/clientController");
 
 const leadController = require("../controllers/leadController");
 const productController = require("../controllers/productController");
-
+const noteController = require("../controllers/noteController");
 const profController = require("../controllers/profController");
 const filiereController = require("../controllers/filiereController");
 const etudiantController = require("../controllers/etudiantController");
@@ -16,7 +16,7 @@ const questionController = require("../controllers/questionController");
 const optionController = require("../controllers/optionController");
 const testController = require("../controllers/testController");
 const etudiantTestController = require("../controllers/etudiantTestController");
-const noteController = require("../controllers/noteController");
+const recommandationController = require("../controllers/recommandationContoller");
 
 //_______________________________ Admin management_______________________________
 
@@ -65,6 +65,7 @@ router.route("/etudiant/update/:id").patch(catchErrors(etudiantController.update
 router.route("/etudiant/delete/:id").delete(catchErrors(etudiantController.delete));
 router.route("/etudiant/search").get(catchErrors(etudiantController.search));
 router.route("/etudiant/list").get(catchErrors(etudiantController.list));
+router.route("/etudiant/updatePersonality").post(catchErrors(etudiantController.updatePersonality));
 
 //_____________________________________ API for questions __________________________
 router.route("/question/create").post(catchErrors(questionController.create));
@@ -91,6 +92,10 @@ router.route("/test/delete/:id").delete(catchErrors(testController.delete));
 router.route("/test/search").get(catchErrors(testController.search));
 router.route("/test/list").get(catchErrors(testController.list));
 
+
+//_____________________________________ API for recommandation  __________________________
+router.route("/recommandation").post(catchErrors(recommandationController.recommandation));
+
 //_____________________________________ API for Test des etudiants  __________________________
 router.route("/etudiantTest/:testId").get(catchErrors(etudiantTestController.list));
 router.route("/etudiantTest/").post(catchErrors(etudiantTestController.create));
@@ -114,8 +119,6 @@ router
   .delete(catchErrors(productController.delete));
 router.route("/product/search").get(catchErrors(productController.search));
 router.route("/product/list").get(catchErrors(productController.list));
-
-
 
 // Note api
 

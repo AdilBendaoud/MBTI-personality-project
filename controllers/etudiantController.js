@@ -124,6 +124,7 @@ exports.read = async (req, res) => {
         first_name: tmpResult.first_name,
         last_name: tmpResult.last_name,
         password: tmpResult.password,
+        personnalite: tmpResult.personnalite
       };
 
       return res.status(200).json({
@@ -292,28 +293,26 @@ exports.delete = async (req, res) => {
   }
 };
 exports.search = async (req, res) => {
-  // console.log(req.query);
-  // if (req.query.q === undefined || req.query.q === "" || req.query.q === " ") {
-  //   return res
-  //     .status(202)
-  //     .json({
-  //       success: false,
-  //       result: [],
-  //       message: "No document found by this request",
-  //     })
-  //     .end();
-  // }
-  // const fieldsArray = req.query.fields.split(",");
+  if (req.query.q === undefined || req.query.q === "" || req.query.q === " ") {
+    return res
+      .status(202)
+      .json({
+        success: false,
+        result: [],
+        message: "No document found by this request",
+      })
+      .end();
+  }
+  const fieldsArray = req.query.fields.split(",");
 
-  // const fields = { $or: [] };
+  const fields = { $or: [] };
 
-  // for (const field of fieldsArray) {
-  //   fields.$or.push({ [field]: { $regex: new RegExp(req.query.q, "i") } });
-  // }
+  for (const field of fieldsArray) {
+    fields.$or.push({ [field]: { $regex: new RegExp(req.query.q, "i") } });
+  }
 
   try {
-    console.log("F:   " + req.query);
-    let results = await Etudiant.find(req.query).sort({ name: "asc" }).limit(10);
+    let results = await Etudiant.find(fields).sort({ name: "asc" }).limit(10);
     if (results.length >= 1) {
       return res.status(200).json({
         success: true,
@@ -338,3 +337,26 @@ exports.search = async (req, res) => {
     });
   }
 };
+
+
+exports.updatePersonality = async(req, res)=>{
+  try {
+    const etudiant = await Etudiant.findById(req.body.etudiantId);
+    if (!etudiant) {
+      throw new Error('User not found');
+    }
+
+    etudiant.personnalite = req.body.personnalite;
+    await etudiant.save();
+    return res.status(200).json({
+      success: true,
+      message: "Successfully updated"
+    });
+  } catch (error) {
+    return res.status(500).json({
+      success: false,
+      result: null,
+      message: "Oops there is an Error",
+    });
+  }
+}

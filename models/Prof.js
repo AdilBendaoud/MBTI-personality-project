@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const fil = require("./Filiere")
 const  Filiere = mongoose.model("Filiere");
 const bcrypt = require("bcryptjs");
 

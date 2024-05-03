@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-mongoose.Promise = global.Promise;
 const Prof = require("./Prof");
 const Etudiant = require("./Etudiant");
 

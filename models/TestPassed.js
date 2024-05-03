@@ -29,7 +29,7 @@ const testPassedSchema = new Schema({
           ref: Question,
           required: true
         },
-        responseId: {
+        optionId: {
           type: ObjectId,
           ref: Option,
           required: true
