@@ -13,12 +13,36 @@ services:
     depends_on:
       - mongodb
   
-  web:
+  web-admin:
     build: ./frontend
     ports:
       - 3000:3000
     volumes:
       - ./frontend:/app
+      - /app/node_modules
+    depends_on:
+      - api
+    networks:
+      - net2
+
+  web-prof:
+    build: ./profFront
+    ports:
+      - 3001:3000
+    volumes:
+      - ./profFront:/app
+      - /app/node_modules
+    depends_on:
+      - api
+    networks:
+      - net2
+
+  web-etud:
+    build: ./front-etudinat
+    ports:
+      - 3002:3000
+    volumes:
+      - ./front-etudinat:/app
       - /app/node_modules
     depends_on:
       - api
