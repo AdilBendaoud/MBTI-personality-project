@@ -1,4 +1,4 @@
-# Personalized University Orientation Platform ReadMe
+# Personalized University Orientation Platform
 <p align="center">
   <img src="https://github.com/AdilBendaoud/MBTI-personality-project/assets/116393842/60fc3392-9aa1-44c4-9c4f-06f9eaa92c4f" alt="drawing" style="width:150px;text-align:center"/>
 </p>
